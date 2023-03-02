@@ -1,7 +1,5 @@
-import math
 import datetime
-from concurrent.futures import ThreadPoolExecutor, wait
-from threading import Lock
+import math
 
 import yaml
 from bs4 import BeautifulSoup
@@ -11,19 +9,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import ElementNotVisibleException, ElementNotSelectableException
-
-
-class BestPrice:
-    def __init__(self):
-        self.price = math.inf
-        self.dates = []
-
-    def update(self, departDate, returnDate, price):
-        if price < self.price:
-            self.price = price
-            self.dates = [durationAsString(departDate, returnDate)]
-        elif math.isclose(price, self.price):
-            self.dates.append(durationAsString(departDate, returnDate))
 
 
 def getConfig():
@@ -72,10 +57,7 @@ def printError(departDate, returnDate):
     print(durationAsString(departDate, returnDate) + ": ERROR")
 
 
-def processDates(departDate, returnDate, bestPrice):
-    driver = setupDriver()
-    lock = Lock()
-
+def getMinPriceOfDay(driver, departDate, returnDate):
     getPage(driver, departDate, returnDate)
 
     try:
@@ -87,41 +69,42 @@ def processDates(departDate, returnDate, bestPrice):
         priceDivs = soup.find_all("div", {"class": "css-vxcmzt"})
         prices = [float(div.text[1:]) for div in priceDivs]
         minPrice = min(prices)
-
-        # Thread-safety is fun! :)
-        lock.acquire()
         printPrice(departDate, returnDate, minPrice)
-        bestPrice.update(departDate, returnDate, minPrice)
-        lock.release()
+        return minPrice
     except:
         soup = BeautifulSoup(driver.page_source, "lxml")
         printError(departDate, returnDate)
-        with open("error.html", "w") as file:
+        with open("output1.html", "w") as file:
             file.write(str(soup))
         return 9999
-    finally:
-        driver.quit()
 
 
 def main():
     config = getConfig()
 
-    bestPrice = BestPrice()
+    driver = setupDriver()
+
+    minPrice = 9999
+    minPriceDates = []
 
     futures = []
-    with ThreadPoolExecutor() as executor:
-        # Iterate all possible depart dates
-        for departDate in daterange(
-            stringToDate(config["departDate"]["from"]), stringToDate(config["departDate"]["to"])
-        ):
-            # Iterate all possible return dates
-            for returnDate in daterange(
-                stringToDate(config["returnDate"]["from"]), stringToDate(config["returnDate"]["to"])
-            ):
-                futures.append(executor.submit(processDates, departDate, returnDate, bestPrice))
-    wait(futures)
 
-    print("Lowest price: £" + str(bestPrice.price) + " for dates " + str(bestPrice.dates))
+    # Iterate all possible depart dates
+    for departDate in daterange(stringToDate(config["departDate"]["from"]), stringToDate(config["departDate"]["to"])):
+        # Iterate all possible return dates
+        for returnDate in daterange(
+            stringToDate(config["returnDate"]["from"]), stringToDate(config["returnDate"]["to"])
+        ):
+            price = getMinPriceOfDay(driver, departDate, returnDate)
+            if price < minPrice:
+                minPrice = price
+                minPriceDates = [durationAsString(departDate, returnDate)]
+            elif math.isclose(price, minPrice):
+                minPriceDates.append(durationAsString(departDate, returnDate))
+
+    print("Lowest price: £" + str(minPrice) + " for dates " + str(minPriceDates))
+
+    driver.quit()
 
 
 if __name__ == "__main__":

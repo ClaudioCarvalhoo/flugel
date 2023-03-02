@@ -4,3 +4,4 @@ selenium
 lxml
 fake_useragent
 undetected-chromedriver
+pyyaml
