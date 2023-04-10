@@ -1,6 +1,10 @@
+import ctypes
+
+libgcc_s = ctypes.CDLL("libgcc_s.so.1")
+
 import math
 import datetime
-from concurrent.futures import ThreadPoolExecutor, wait
+from concurrent.futures import ThreadPoolExecutor
 from threading import Lock
 
 import yaml
@@ -108,8 +112,7 @@ def main():
 
     bestPrice = BestPrice()
 
-    futures = []
-    with ThreadPoolExecutor() as executor:
+    with ThreadPoolExecutor(max_workers=12) as executor:
         # Iterate all possible depart dates
         for departDate in daterange(
             stringToDate(config["departDate"]["from"]), stringToDate(config["departDate"]["to"])
@@ -118,8 +121,7 @@ def main():
             for returnDate in daterange(
                 stringToDate(config["returnDate"]["from"]), stringToDate(config["returnDate"]["to"])
             ):
-                futures.append(executor.submit(processDates, departDate, returnDate, bestPrice))
-    wait(futures)
+                executor.submit(processDates, departDate, returnDate, bestPrice)
 
     print("Lowest price: £" + str(bestPrice.price) + " for dates " + str(bestPrice.dates))
 
