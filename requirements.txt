@@ -5,3 +5,5 @@ lxml
 fake_useragent
 undetected-chromedriver
 pyyaml
+pandas
+xlsxwriter

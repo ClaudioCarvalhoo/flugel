@@ -1,0 +1,363 @@
+numberOfWeekends: 2
+
+locationsFrom:
+  - name: London
+    code: LON
+    type: CITY
+    country: GB
+
+locationsTo:
+  - name: Dublin
+    code: DUB
+    type: AIRPORT
+    country: IE
+
+  - name: Edinburgh
+    code: EDI
+    type: AIRPORT
+    country: GB
+
+  - name: Reykjavík
+    code: REK
+    type: CITY
+    country: IS
+
+  - name: Copenhagen
+    code: CPH
+    type: AIRPORT
+    country: DK
+
+  - name: Oslo
+    code: OSL
+    type: CITY
+    country: NO
+
+  - name: Stockholm
+    code: STO
+    type: CITY
+    country: SE
+
+  - name: Helsinki
+    code: HEL
+    type: CITY
+    country: FI
+
+  - name: Lisbon
+    code: LIS
+    type: AIRPORT
+    country: PT
+
+  - name: Porto
+    code: OPO
+    type: AIRPORT
+    country: PT
+
+  - name: Madeira
+    code: PXO
+    type: AIRPORT
+    country: PT
+
+  - name: Madrid
+    code: MAD
+    type: CITY
+    country: ES
+
+  - name: Barcelona
+    code: BCN
+    type: AIRPORT
+    country: ES
+
+  - name: Tenerife
+    code: TCI
+    type: CITY
+    country: ES
+
+  - name: Paris
+    code: PAR
+    type: CITY
+    country: FR
+
+  - name: Bordeaux
+    code: BOR
+    type: AIRPORT
+    country: FR
+
+  - name: Nice
+    code: NCE
+    type: AIRPORT
+    country: FR
+
+  - name: Brussels
+    code: BRU
+    type: CITY
+    country: BE
+
+  - name: Amsterdam
+    code: AMS
+    type: AIRPORT
+    country: NL
+
+  - name: Luxembourg
+    code: LUX
+    type: AIRPORT
+    country: LU
+
+  - name: Geneva
+    code: GVA
+    type: AIRPORT
+    country: CH
+
+  - name: Zurich
+    code: ZRH
+    type: AIRPORT
+    country: CH
+
+  - name: Milan
+    code: MIL
+    type: CITY
+    country: IT
+
+  - name: Rome
+    code: ROM
+    type: CITY
+    country: IT
+
+  - name: Venice
+    code: VCE
+    type: AIRPORT
+    country: IT
+
+  - name: Malta
+    code: MLA
+    type: AIRPORT
+    country: MT
+
+  - name: Berlin
+    code: BER
+    type: AIRPORT
+    country: DE
+
+  - name: Munich
+    code: MUC
+    type: AIRPORT
+    country: DE
+
+  - name: Prague
+    code: PRG
+    type: AIRPORT
+    country: CZ
+
+  - name: Salzburg
+    code: SZG
+    type: AIRPORT
+    country: AT
+
+  - name: Vienna
+    code: VIE
+    type: AIRPORT
+    country: AT
+
+  - name: Ljubljana
+    code: LJU
+    type: AIRPORT
+    country: SI
+
+  - name: Warsaw
+    code: WAW
+    type: CITY
+    country: PL
+
+  - name: Kraków
+    code: KRK
+    type: AIRPORT
+    country: PL
+
+  - name: Gdańsk
+    code: GDN
+    type: AIRPORT
+    country: PL
+
+  - name: Bydgoszcz
+    code: BZG
+    type: AIRPORT
+    country: PL
+
+  - name: Bratislava
+    code: BTS
+    type: AIRPORT
+    country: SK
+
+  - name: Budapest
+    code: BUD
+    type: AIRPORT
+    country: HU
+
+  - name: Zagreb
+    code: ZAG
+    type: AIRPORT
+    country: HR
+
+  - name: Dubrovnik
+    code: DBV
+    type: AIRPORT
+    country: HR
+
+  - name: Pula
+    code: PUY
+    type: AIRPORT
+    country: HR
+
+  - name: Split
+    code: SPU
+    type: AIRPORT
+    country: HR
+
+  - name: Sarajevo
+    code: SJJ
+    type: AIRPORT
+    country: BA
+
+  - name: Tivat
+    code: TIV
+    type: AIRPORT
+    country: ME
+
+  - name: Podgorica
+    code: TGD
+    type: AIRPORT
+    country: ME
+
+  - name: Pristina
+    code: PRN
+    type: AIRPORT
+    country: RS
+
+  - name: Belgrade
+    code: BEG
+    type: AIRPORT
+    country: RS
+
+  - name: Tirana
+    code: TIA
+    type: AIRPORT
+    country: AL
+
+  - name: Skopje
+    code: SKP
+    type: AIRPORT
+    country: MK
+
+  - name: Thessaloniki
+    code: SKG
+    type: AIRPORT
+    country: GR
+
+  - name: Corfu
+    code: CFU
+    type: AIRPORT
+    country: GR
+
+  - name: Athens
+    code: ATH
+    type: AIRPORT
+    country: GR
+
+  - name: Santorini
+    code: JTR
+    type: AIRPORT
+    country: GR
+
+  - name: Mykonos
+    code: JMK
+    type: AIRPORT
+    country: GR
+
+  - name: Larnaca
+    code: LCA
+    type: AIRPORT
+    country: CY
+
+  - name: Paphos
+    code: PFO
+    type: AIRPORT
+    country: CY
+
+  - name: Istanbul
+    code: IST
+    type: CITY
+    country: TR
+
+  - name: Antalya
+    code: AYT
+    type: AIRPORT
+    country: TR
+
+  - name: Tel Aviv
+    code: TLV
+    type: AIRPORT
+    country: IL
+
+  - name: Cairo
+    code: CAI
+    type: AIRPORT
+    country: EG
+
+  - name: Sofia
+    code: SOF
+    type: AIRPORT
+    country: BG
+
+  - name: Bucharest
+    code: BUH
+    type: CITY
+    country: RO
+
+  - name: Iași
+    code: IAS
+    type: AIRPORT
+    country: RO
+
+  - name: Cluj-Napoca
+    code: CLJ
+    type: AIRPORT
+    country: RO
+
+  - name: Chișinău
+    code: KIV
+    type: AIRPORT
+    country: MD
+
+  - name: Kyiv
+    code: IEV
+    type: CITY
+    country: UA
+
+  - name: Lviv
+    code: LWO
+    type: AIRPORT
+    country: UA
+
+  - name: Minsk
+    code: MSQ
+    type: AIRPORT
+    country: BY
+
+  - name: Moscow
+    code: MOW
+    type: CITY
+    country: RU
+
+  - name: Vilnius
+    code: VNO
+    type: AIRPORT
+    country: LT
+
+  - name: Riga
+    code: RIX
+    type: AIRPORT
+    country: LV
+
+  - name: Tallinn
+    code: TLL
+    type: AIRPORT
+    country: EE
